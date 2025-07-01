@@ -1,17 +1,17 @@
-/* Unique Portfolio Design for Susmitha Yarramsetti */
+/* Black & White Portfolio Design */
 :root {
-    --primary: #6C63FF;
-    --primary-dark: #564FD8;
-    --secondary: #FF6584;
-    --dark: #2D3748;
-    --gray: #718096;
-    --light-gray: #F7FAFC;
-    --white: #FFFFFF;
-    --success: #48BB78;
-    --warning: #ED8936;
-    --danger: #F56565;
-    --border-radius: 10px;
-    --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --primary: #000000;  /* Pure black */
+    --primary-dark: #333333;
+    --secondary: #666666;
+    --dark: #222222;     /* Dark gray for text */
+    --gray: #888888;
+    --light-gray: #f5f5f5; /* Light gray background */
+    --white: #ffffff;    /* Pure white */
+    --success: #444444;
+    --warning: #555555;
+    --danger: #777777;
+    --border-radius: 8px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
 
@@ -32,6 +32,7 @@ body {
 .highlight {
     color: var(--primary);
     font-weight: 600;
+    text-decoration: underline;
 }
 
 .container {
@@ -39,9 +40,9 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar Styles */
+/* Sidebar - Dark Version */
 .sidebar {
-    width: 320px;
+    width: 300px;
     background-color: var(--dark);
     color: var(--white);
     padding: 2rem;
@@ -50,6 +51,7 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 100;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .profile-card {
@@ -58,24 +60,27 @@ body {
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--primary);
+    border: 4px solid var(--white);
     margin-bottom: 1.5rem;
     box-shadow: var(--box-shadow);
+    filter: grayscale(30%);
 }
 
 .profile-card h1 {
     font-size: 1.6rem;
     margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
 }
 
 .tagline {
     color: var(--gray);
     font-size: 1rem;
     margin-bottom: 1.5rem;
+    font-weight: 300;
 }
 
 .contact-info {
@@ -89,10 +94,11 @@ body {
     align-items: center;
     gap: 0.8rem;
     font-size: 0.9rem;
+    color: var(--light-gray);
 }
 
 .contact-info i {
-    color: var(--primary);
+    color: var(--white);
     width: 20px;
     text-align: center;
 }
@@ -111,7 +117,7 @@ body {
 }
 
 .social-links a:hover {
-    color: var(--primary);
+    color: var(--light-gray);
     transform: translateY(-3px);
 }
 
@@ -134,14 +140,14 @@ body {
 .nav-link span {
     font-size: 0.9rem;
     margin-right: 1rem;
-    color: var(--primary);
+    color: var(--white);
     font-weight: 600;
 }
 
 .nav-link:hover, .nav-link.active {
     color: var(--white);
-    border-left: 3px solid var(--primary);
-    background: rgba(108, 99, 255, 0.1);
+    border-left: 3px solid var(--white);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .sidebar-footer {
@@ -152,10 +158,10 @@ body {
     padding-top: 2rem;
 }
 
-/* Main Content Styles */
+/* Main Content - Light Version */
 .main-content {
     flex: 1;
-    margin-left: 320px;
+    margin-left: 300px;
     padding: 3rem 4rem;
     background-color: var(--white);
 }
@@ -167,18 +173,20 @@ body {
 }
 
 .section-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 3rem;
     position: relative;
     display: flex;
     align-items: center;
     color: var(--dark);
+    font-weight: 600;
 }
 
 .section-title span {
     color: var(--primary);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-right: 1.2rem;
+    font-weight: 700;
 }
 
 /* About Section */
@@ -189,10 +197,11 @@ body {
 }
 
 .intro-text {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 1.4;
     margin-bottom: 2rem;
     font-weight: 500;
+    color: var(--dark);
 }
 
 .download-resume {
@@ -298,10 +307,12 @@ body {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .experience-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .experience-card h3 {
@@ -324,13 +335,23 @@ body {
 
 .experience-details {
     list-style-position: inside;
-    padding-left: 0.5rem;
+    padding-left: 0;
 }
 
 .experience-details li {
     margin-bottom: 0.7rem;
     font-size: 0.95rem;
     color: var(--dark);
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.experience-details li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
 }
 
 /* Projects Section */
@@ -347,6 +368,7 @@ body {
     transition: var(--transition);
     box-shadow: var(--box-shadow);
     background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .project-image {
@@ -360,6 +382,7 @@ body {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
+    filter: grayscale(20%);
 }
 
 .project-overlay {
@@ -368,7 +391,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(108, 99, 255, 0.9);
+    background: rgba(0, 0, 0, 0.8);
     color: var(--white);
     display: flex;
     flex-direction: column;
@@ -386,6 +409,7 @@ body {
 .project-overlay p {
     margin-bottom: 1rem;
     font-size: 0.9rem;
+    color: var(--light-gray);
 }
 
 .project-tech {
@@ -400,6 +424,7 @@ body {
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.7rem;
+    color: var(--white);
 }
 
 .project-card:hover .project-overlay {
@@ -431,7 +456,8 @@ body {
 }
 
 .project-link:hover {
-    color: var(--primary-dark);
+    color: var(--dark);
+    text-decoration: underline;
 }
 
 /* Skills Section */
@@ -446,6 +472,7 @@ body {
     padding: 1.8rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .skills-category h3 {
@@ -479,11 +506,12 @@ body {
     margin-bottom: 0.5rem;
     font-weight: 500;
     font-size: 0.95rem;
+    color: var(--dark);
 }
 
 .skill-meter {
     height: 8px;
-    background-color: #e2e8f0;
+    background-color: #e0e0e0;
     border-radius: 4px;
     overflow: hidden;
 }
@@ -509,6 +537,7 @@ body {
     border-radius: var(--border-radius);
     transition: var(--transition);
     text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .tool-item:hover {
@@ -525,6 +554,7 @@ body {
 .tool-item span {
     font-size: 0.8rem;
     font-weight: 500;
+    color: var(--dark);
 }
 
 .certifications {
@@ -533,6 +563,7 @@ body {
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .certifications h3 {
@@ -549,10 +580,11 @@ body {
     margin-bottom: 0.8rem;
     position: relative;
     padding-left: 1.5rem;
+    color: var(--dark);
 }
 
 .cert-list li::before {
-    content: '✓';
+    content: '•';
     position: absolute;
     left: 0;
     color: var(--primary);
@@ -581,6 +613,8 @@ body {
         height: auto;
         position: relative;
         padding: 1.5rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .main-content {
@@ -618,7 +652,7 @@ body {
     
     .nav-link.active, .nav-link:hover {
         border-left: none;
-        border-bottom: 3px solid var(--primary);
+        border-bottom: 3px solid var(--white);
         background: none;
     }
 }
